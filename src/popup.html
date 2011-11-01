@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+  <script src="js/common.js" type="text/javascript"></script>
+  <script src='js/exchanges_and_indexes.js' type='text/javascript'></script>
+  <script src="js/data.js" type="text/javascript"></script>
+  <script src="js/alert.js" type="text/javascript"></script>
+  <script src="js/config.js" type="text/javascript"></script>
+  <script src="js/stock.js" type="text/javascript"></script>
+  <script src="js/symbol_manage.js" type="text/javascript"></script>
+  <script src="js/position.js" type="text/javascript"></script>
+  <script src="js/page_popup.js" type="text/javascript"></script>
+  <script src="js/view_indexes.js" type="text/javascript"></script>
+  <script src="js/view_alerts.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/popup.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/view_indexes.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/view_alerts.css" type="text/css" charset="utf-8" />
+</head>
+
+<body onload="onPopupLoad()" onunload="onPopupUnload()">
+
+<div id="symbol_input_area">
+  <input id="symbol_input" class='left' type="text" onkeydown="onSymbolInputKeyDown(event)" onkeyup="onSymbolInputKeyUp(event);" onclick="this.select();"></input>
+  <div id='detail_name_container'>
+    <a id='detail_name' target='_blank' href='#'></a>
+    <div id='detail_exchange'></div>
+  </div>
+</div>
+
+<div id='top_panel' class='no_display'>
+  <div id='details' class='no_display'>
+    <div id='detail_quote_line'>
+      <div id='detail_prc' class='left'></div>
+      <div id='detail_status' class='left'></div>
+      <div id='detail_c' class='left'></div>
+      <div id='detail_cp' class='left'></div>
+      <div id='detail_acts' class='right'></div>
+    </div>
+    <div class='detail_line' id='dl_1'>
+      <div class='detail_col_quad'><span class='field'>O</span><span class='value' id='detail_op'>888,888.88</span></div>
+      <div class='detail_col_quad'><span class='field'>HI</span><span class='value' id='detail_hi'>888,888.88</span></div>
+      <div class='detail_col_quad'><span class='field'>LO</span><span class='value' id='detail_lo'>888,888.88</span></div>
+      <div class='detail_col_quad' id='detail_cl_container'><span class='field'>C</span><span class='value' id='detail_cl'>888,888.88</span></div>
+    </div>
+    <div class='detail_line' id='dl_2'>
+      <div class='detail_col_quad'><span class='field'>P/E</span><span class='value' id='detail_pe'>888.88</span></div>
+      <div class='detail_col_quad'><span class='field'>BETA</span><span class='value' id='detail_beta'>888.88</span></div>
+      <div class='detail_col_quad'><span class='field'>EPS</span><span class='value' id='detail_eps'>888.88</span></div>
+      <div class='detail_col_quad'><span class='field'>MCAP</span><span class='value' id='detail_mc'>362.34B</span></div>
+    </div>
+    <div class='detail_line' id='dl_3'>
+      <div class='detail_col_half'><span class='field'>52WEEK</span><span class='value' id='detail_52wk'>888,888.88-888,888.88</span></div>
+      <div class='detail_col_half'><span class='field'>VOL/AVG</span><span class='value' id='detail_vol'>7.35M/25.15M</span></div>
+    </div>
+  </div>
+  <!-- -->
+  <div id='suggestions' class='no_display'></div>
+  <!-- -->
+  <div id='top_panel_footer' onclick='onClickTopPanelFooter();'><div class='btn_hide_panel'></div></div>
+</div>
+
+<div id='mid_panel' class='no_display'>
+  <!--div id='trans_input' class='no_display'>
+    <div class='mid_line'>
+      <div class='detail_col_half'>
+        <div class='field'>Direction</div>
+        <div class='right'>
+          <select id='trans_direction' class='trans_droptext' onchange='onTradeDirectionChange();'>
+            <option value='0' style='color:#008000'>Long</option>
+            <option value='1' style='color:#aa0033'>Short</option>
+          </select>
+        </div>
+      </div>
+      <div class='detail_col_half'>
+        <div class='field'>Shares</div>
+        <div class='right'>
+          <input id='trans_shares' type='text' class='trans_text_input' onclick="jQuery('#' + this.id).select();" onkeydown="onNumericInputKeyDown(event, this.id, false);"></input>
+        </div>
+      </div>
+    </div>
+    <div class='mid_line'>
+      <div class='detail_col_half'>
+        <div class='field'>Price</div>
+        <div class='right'>
+          <input id='trans_price' type='text' class='trans_text_input' onclick="jQuery('#' + this.id).select();" onkeydown="onNumericInputKeyDown(event, this.id, true);"></input>
+        </div>
+      </div>
+      <div class='detail_col_half'>
+        <div class='field'>Commission</div>
+        <div class='right'>
+          <input id='trans_commission' type='text' class='trans_text_input' onclick="jQuery('#' + this.id).select();" onkeydown="onNumericInputKeyDown(event, this.id, true);"></input>
+        </div>
+      </div>
+    </div>
+    <div class='mid_line'>
+      <a class='gbutton gb_white gb_tiny right' onclick='onClickConfirmTrans();'>confirm</a>
+      <a class='gbutton gb_white gb_tiny right' onclick="setupMidPanel('');">cancel</a>
+    </div>
+  </div-->
+  <!-- -->
+  <div id='alert_input' class='no_display'></div>
+  <!-- -->
+  <div id='mid_panel_footer' onclick="setupMidPanel('');"><div class='btn_hide_panel'></div></div>
+</div>
+
+<div id='list_panel' class='scroll'></div>
+<div id='list_trailing'></div>
+<div id='list_footer'></div>
+
+<div id="info_area"></div>
+<div id="debug_area"></div>
+
+</body>
+
+</html>
+

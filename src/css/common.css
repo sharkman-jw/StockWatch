@@ -1,0 +1,117 @@
+/*------------------------------------------------------------------------------
+Generic
+------------------------------------------------------------------------------*/
+.invisible{
+visibility:hidden;
+}
+.left{
+float:left;
+}
+.right{
+float:right;
+}
+input:focus {
+outline: none;
+}
+.no_display{
+display:none;
+}
+.clickable{
+cursor:pointer;
+}
+.text_center{
+text-align:center;
+}
+.text_left{
+text-align:left;
+}
+.text_right{
+text-align:right;
+}
+.font_small{
+font-size:11px;
+}
+.font_tiny{
+font-size:10px;
+}
+.font_bold{
+font-weight:bold;
+}
+.width_tri{
+width:33%;
+white-space:nowrap; 
+overflow:hidden; 
+text-overflow:clip;
+}
+.width_quad{
+width:25%;
+white-space:nowrap; 
+overflow:hidden; 
+text-overflow:clip;
+}
+.width_onesixth{
+width:16%;
+white-space:nowrap; 
+overflow:hidden; 
+text-overflow:clip;
+}
+/*------------------------------------------------------------------------------
+Gradient buttons
+------------------------------------------------------------------------------*/
+.gbutton {
+display: inline-block;
+vertical-align: baseline;
+margin: 0 2px;
+outline: none;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+font: 14px/100% Arial, Helvetica, sans-serif;
+padding: .5em 2em .55em;
+text-shadow: 0 1px 1px rgba(0,0,0,.3);
+-webkit-border-radius: .3em; 
+-moz-border-radius: .3em;
+border-radius: .3em;
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+-moz-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+.gbutton:hover {
+text-decoration: none;
+}
+.gbutton:active {
+position: relative;
+top:1px;
+}
+
+.gb_small {
+font-size: 10px;
+padding:.1em .5em .275em;
+}
+.gb_tiny {
+font-size:8px;
+padding:.3em .4em .275em;
+}
+
+.gb_white {
+color: #606060;
+border: solid 1px #b7b7b7;
+background: #fff;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+background: -moz-linear-gradient(top,  #fff,  #ededed);
+}
+.gb_white:hover {
+background: #ededed;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+}
+.gb_white:active {
+color: #999;
+background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+background: -moz-linear-gradient(top,  #ededed,  #fff);
+}
+.gb_white_pressed {
+color: #999;
+background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+background: -moz-linear-gradient(top,  #ededed,  #fff);
+}

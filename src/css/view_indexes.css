@@ -1,0 +1,119 @@
+.index_line_add_0{
+height:16px;
+padding-top:3px;
+margin-bottom:4px;
+/*border-bottom:1px solid #eeeeee;*/
+cursor:pointer;
+width:295px;
+color:#cccccc;
+text-align:center;
+font-size:10px;
+font-weight:bold;
+}
+.index_line_add_0:hover{
+color:#979797;
+background-color:#f5f5f5;
+}
+.index_line_add_1{
+height:20px;
+padding-top:3px;
+width:295px;
+font-size:10px;
+font-weight:bold;
+}
+
+.col_flag{
+width:20px;
+float:left;
+padding-top:3px;
+padding-left:1px;
+}
+.col_index_name{
+width:73px;
+padding-top:1px;
+float:left;
+white-space:nowrap; 
+overflow:hidden; 
+text-overflow:clip;
+}
+.col_index_name a{
+text-decoration:none;
+color:#3366cc;
+}
+.col_index_name a:hover{
+text-decoration:underline;
+}
+.col_index_name_sel{
+float:left;
+width:45%;
+}
+
+#sel_region{
+font-size:10px;
+width:95%;
+height:17px;
+}
+#sel_index{
+font-size:10px;
+width:95%;
+height:17px;
+}
+
+.flag {
+width:16px;
+height:11px;
+}
+.flag_us{
+background:url(/images/flags/us.png) no-repeat;
+}
+.flag_cn{
+background:url(/images/flags/cn.png) no-repeat;
+}
+.flag_au{
+background:url(/images/flags/au.png) no-repeat;
+}
+.flag_ca{
+background:url(/images/flags/ca.png) no-repeat;
+}
+.flag_dk{
+background:url(/images/flags/dk.png) no-repeat;
+}
+.flag_eu{
+background:url(/images/flags/eu.png) no-repeat;
+}
+.flag_fr{
+background:url(/images/flags/fr.png) no-repeat;
+}
+.flag_de{
+background:url(/images/flags/de.png) no-repeat;
+}
+.flag_hk{
+background:url(/images/flags/hk.png) no-repeat;
+}
+.flag_in{
+background:url(/images/flags/in.png) no-repeat;
+}
+.flag_it{
+background:url(/images/flags/it.png) no-repeat;
+}
+.flag_jp{
+background:url(/images/flags/jp.png) no-repeat;
+}
+.flag_my{
+background:url(/images/flags/my.png) no-repeat;
+}
+.flag_nl{
+background:url(/images/flags/nl.png) no-repeat;
+}
+.flag_nz{
+background:url(/images/flags/nz.png) no-repeat;
+}
+.flag_no{
+background:url(/images/flags/no.png) no-repeat;
+}
+.flag_tw{
+background:url(/images/flags/tw.png) no-repeat;
+}
+.flag_gb{
+background:url(/images/flags/gb.png) no-repeat;
+}

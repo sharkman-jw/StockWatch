@@ -1,0 +1,112 @@
+body{
+background-color: #eaeaea;
+font-size:14px;
+}
+#wrapper{
+background-color: #ffffff;
+width:750px;
+height:800px;
+margin:auto;
+margin-top:50px;
+margin-bottom:50px;
+padding:25px;
+font-family: arial, sans-serif;
+border-radius:10px;
+border:3px solid #cccccc;
+}
+/*
+ * Page header
+ */
+#page_title{
+margin-bottom:25px;
+display:table;
+}
+#icon_col{
+display:table-cell;
+vertical-align:middle;
+}
+#title_col{
+display:table-cell;
+vertical-align:middle;
+}
+.share_col{
+display:table-cell;
+vertical-align:middle;
+width:200px;
+}
+#title_text{
+font-size:24px;
+color:#111111;
+}
+#version{
+text-align:center;
+font-size:12px;
+color:#777777;
+}
+/*
+ * Option
+ */
+.section{
+display:table;
+margin-bottom:20px;
+}
+.section_name{
+font-weight:bold;
+font-size:16px;
+}
+.config_panel{
+display:table-cell;
+width:450px;
+color:#222222;
+background-color:#f3f7fc;
+border:1px solid #d2dbed;
+border-radius:5px;
+padding-left:8px;
+padding-right:8px;
+padding-top:8px;
+padding-bottom:10px;
+}
+.config_line{
+margin-top:8px;
+height:25px;
+}
+.config_line .field{
+float:left;
+}
+.config_line .value{
+float:right;
+}
+.remark_panel{
+display:table-cell;
+width:260px;
+padding-left:15px;
+vertical-align:top;
+}
+.description{
+color:#777777;
+border-left:1px solid #777777;
+padding-left:10px;
+margin-top:2px;
+}
+.msg_ok{
+background-color:#e2ffe2;
+border:1px solid #3d9400;
+padding:10px;
+border-radius:5px;
+}
+.msg_err{
+background-color:#ffe2e2;
+border:1px solid #d44b38;
+padding:10px;
+border-radius:5px;
+}
+.droptext {
+height:20px;
+}
+
+#debug_area{
+background-color:black;
+color:white;
+}
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script type='text/javascript'>
+function onNotifyLoad() {
+  var alerts = chrome.extension.getBackgroundPage()._alertsToNotify;
+  if (alerts.length < 1) {
+    onError('No pending alert to notify.');
+    return;
+  }
+  var alert = alerts.shift();
+  if (!alert || !alert.ticker){
+    onError('Invalid alert.');
+    return;
+  }
+  
+  jQuery('#ticker').text(alert.ticker);
+  jQuery('#price').text(alert.hitPrice.toFixed(2));
+  jQuery('#price').addClass(alert.hitDir == -1 ? 'downward' : 'upward');
+  jQuery('#timestamp').text(alert.timestamp);
+}
+//
+function onError(errMsg) {
+  if (chrome.extension.getBackgroundPage().debugmode)
+    jQuery('#ticker').text('error: ' + errMsg ? errMsg : 'unknown');
+  else
+    window.close();
+}
+</script>
+<style type="text/css">
+#line1{
+height:25px;
+}
+#ticker{
+padding-top:3px;
+font-size:14px;
+padding-right:10px;
+}
+#price{
+height:19px;
+font-weight:bold;
+font-size:16px;
+padding-left:3px;
+padding-right:3px;
+border-radius:3px;
+}
+#timestamp{
+padding-top:3px;
+font-size:14px;
+color:#979797;
+}
+.upward{
+background-color:#e2ffe2;
+border:1px solid #3d9400;
+color:#008000;
+}
+.downward{
+background-color:#ffe2e2;
+border:1px solid #d44b38;
+color:#aa0033;
+}
+</style>
+<link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+</head>
+
+<body onload="onNotifyLoad()">
+<div id='line1'>
+  <div id='ticker' class='left'></div>
+  <div id='price' class='left'></div>
+  <div id='timestamp' class='right'></div>
+</div>
+<!--div id='line2'>
+</div-->
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "version": "1.2.0.0",
+  "name": "Stock Watch 1.1.0.2 DEV",
+  "description": "Stock Quotes, Watch List",
+  "browser_action": {
+    "default_icon": "images/icon_19_default.png",
+    "default_title": "Stock Watch",
+    "popup": "popup.html"
+  },
+  "icons": {
+    "128": "images/icon_128.png",
+    "48": "images/icon_48.png",
+    "32": "images/icon_32.png"
+   },
+  "background_page": "background.html",
+  "options_page": "options.html",
+  "permissions": [
+    "http://www.google.com/",
+    "https://www.google.com/",
+    "http://d.yimg.com/autoc.finance.yahoo.com/",
+    "notifications"
+  ]
+}
