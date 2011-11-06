@@ -8,7 +8,8 @@ function backgroundPageInit() {
   initSymbolLists();
   initSettings();
   initData();
-  processUpgrade(startBackgroundTasks);
+  processUpgrade();
+  startBackgroundTasks();
 }
 //
 function startBackgroundTasks() {
@@ -17,74 +18,14 @@ function startBackgroundTasks() {
   loopAssessStatuses();
 }
 //
-function processUpgrade(followUpFunc) {
+function processUpgrade() {
   var currentVer = chrome.app.getDetails().version;
   if (currentVer == getStrFromLS('_version', '')) {
-    followUpFunc();
     return;
   }
   
-  // Convert symbols in symbol lists to full tickers
-  // recent symbol list
-  var sl = _slm_bg.getListById('sl_recent');
-  var i = 0;
-  var symbol = '';
-  var toDel = [];
-  for (i = 0; i < sl.size(); ++ i) {
-    symbol = sl.at(i);
-    if (symbol.indexOf(':') == -1)
-      toDel.push(symbol);
-  }
-  for (i = 0; i < toDel.length; ++ i) {
-    sl.del(toDel[i]);
-  }
-  // watch list
-  var sl = _slm_bg.getListById('sl_watch');
-  var toRename = [];
-  for (i = 0; i < sl.size(); ++ i) {
-    symbol = sl.at(i);
-    if (symbol.indexOf(':') == -1)
-      toRename.push(symbol);
-  }
-  if (toRename.length > 0) {
-    var xhr = new XMLHttpRequest();
-    var url = _quoteUrl + toRename.join(',');
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
-      if(xhr.readyState == 4) {
-        var good = false;
-        var text = xhr.responseText;
-        if (text) {
-          // try decode hexadecimal if found the sign..
-          if (text.indexOf('\\x') != -1)
-            text = decodeHexadecimal(text);
-          // parse json data
-          var rawStockDataList = [];
-          try {
-            rawStockDataList = JSON.parse(text.substr(3));
-            good = true;
-          } catch (e) {
-            log(e);
-          }
-        }
-        if (good) {
-          var rawData = null;
-          for (var i = 0; i < rawStockDataList.length; ++ i) {
-            rawData = rawStockDataList[i];
-            sl.renameSymbol(rawData.t, rawData.e + ':' + rawData.t);
-          }
-        } else {
-          for (var i = 0; i < toDel.length; ++ i) {
-            sl.del(toRename[i]);
-          }
-        }
-      }
-      followUpFunc();
-    };
-    xhr.send(null);
-  } else {
-    followUpFunc();
-  }
+  var sl = _slm_bg.getListById('sl_indexes');
+  sl.del('INDEXDJSTOXX:SX5E');
   
   saveStrToLS('_version', currentVer);
 }
@@ -279,7 +220,7 @@ function assessDataRefreshStatus() {
 //
 var _alertsToNotify = [];
 function checkAlerts() {
-  return;
+  return; //TODO
   var sl = _slm_bg.getListById('sl_alert');
   var n = sl.size();
   var sa = null;

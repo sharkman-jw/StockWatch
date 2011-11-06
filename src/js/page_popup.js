@@ -494,7 +494,7 @@ function buildDetailPanelActions(stock) {
   
   // watch/add button
   var btn = null;
-  if (!underWatch) {
+  if (!underWatch && _currentList.listId != 'sl_indexes') {
     btn = document.createElement('input');
     btn.setAttribute('type', 'button');
     btn.setAttribute('class', 'gbutton gb_white gb_tiny left');
@@ -504,17 +504,19 @@ function buildDetailPanelActions(stock) {
   }
   
   // alert button
-  btn = document.createElement('input');
+  /*btn = document.createElement('input');
   btn.setAttribute('type', 'button');
   btn.setAttribute('class', 'gbutton gb_white gb_tiny left');
   btn.setAttribute('onclick', "launchAlertInputPanel('" + stock.keyTicker + "');");
   btn.setAttribute('value', 'ALERT');
-  actsNode.append(btn);
+  actsNode.append(btn);*/
   
   // move buttons
-  if (_currentList.listId != 'sl_alert' && _currentList.listId != 'sl_recent' &&
-    _currentList.indexOf(stock.keyTicker) != -1)
+  if (_currentList.listId != 'sl_alert' &&
+    _currentList.listId != 'sl_recent' &&
+    _currentList.indexOf(stock.keyTicker) != -1) {
     actsNode.append(createMoveButton(stock.keyTicker));
+  }
 }
 //
 function setDetailPanelField(fieldSelector, value) {
@@ -969,7 +971,8 @@ function resetListPanelFooter() {
   var lineNode = jQuery('#list_footer');
   lineNode.empty();
   //var lists = ['sl_recent', 'sl_watch', 'sl_indexes', 'sl_portfolio', 'sl_alert'];
-  var lists = ['sl_recent', 'sl_watch', 'sl_indexes', 'sl_alert'];
+  //var lists = ['sl_recent', 'sl_watch', 'sl_indexes', 'sl_alert'];
+  var lists = ['sl_recent', 'sl_watch', 'sl_indexes'];
   var symbolList = null;
   for (var i = 0; i < lists.length; ++ i) {
     symbolList = _slm.getListById(lists[i]);

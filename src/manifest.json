@@ -1,6 +1,6 @@
 {
-  "version": "1.2.0.0",
-  "name": "Stock Watch 1.1.0.2 DEV",
+  "version": "1.1.0.4",
+  "name": "Stock Watch",
   "description": "Stock Quotes, Watch List",
   "browser_action": {
     "default_icon": "images/icon_19_default.png",
